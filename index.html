@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phim Online</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .head {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            background-color: rgb(97, 165, 228);
+            color: #1d0896;
+            width: 100%;
+            height: 150px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .item-h1 {
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        .item-h2 {
+            margin: 0 auto;
+            font-size: 20px;
+        }
+
+        .search {
+            width: 150px;
+            font-size: 20px;
+        }
+
+        .listMovie {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            gap: 5px;
+            background-color: rgb(158, 214, 247);
+            color: #fff;
+            width: 100%;
+            height: 80%;
+            padding-top: 20px;
+        }
+
+        .listMovie img {
+            width: 250px;
+            height: 250px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="head">
+        <h2 class="item-h1">PHIM ONLINE</h2><br>
+        <div>
+            <input class="search" type="text" placeholder="TÌM PHIM">
+            <button><i class="fa-brands fa-sistrix"></i>Search</button>
+        </div>
+        <div class="item-h2">
+            <button style="text-decoration: none; color: #05205c;">HÀNH ĐỘNG</button>
+        </div>
+        <div class="item-h2">
+            <button style="text-decoration: none; color: #05205c;">TÌNH CẢM</button>
+        </div>
+        <div class="item-h2">
+            <button style="text-decoration: none; color: #05205c;">KINH DỊ</button>
+        </div>
+        <div class="item-h2">
+            <button id="homeButton" style="text-decoration: none; color: #05205c;">Trang chủ</button>
+        </div>
+    </section>
+
+    <section>
+        <div class="listMovie">
+
+        </div>
+    </section>
+    <script>
+        var movies = [
+            {
+                name: "Phim 1",
+                image: "Image/i.jpg",
+                genre: "Thể loại 1",
+                releaseDate: "Ngày chiếu 1"
+            },
+            {
+                name: "Phim 2",
+                image: "Image/i.jpg",
+                genre: "Thể loại 2",
+                releaseDate: "Ngày chiếu 2"
+            },
+            {
+                name: "Phim 3",
+                image: "Image/i.jpg",
+                genre: "Thể loại 1",
+                releaseDate: "Ngày chiếu 1"
+            },
+            {
+                name: "Phim 4",
+                image: "Image/i.jpg",
+                genre: "Thể loại 1",
+                releaseDate: "Ngày chiếu 1"
+            },
+            {
+                name: "Phim 5",
+                image: "Image/i.jpg",
+                genre: "Thể loại 1",
+                releaseDate: "Ngày chiếu 1"
+            },
+            {
+                name: "Phim 6",
+                image: "Image/i.jpg",
+                genre: "Thể loại 1",
+                releaseDate: "Ngày chiếu 1"
+            },
+            {
+                name: "Phim 7",
+                image: "Image/i.jpg",
+                genre: "Thể loại 1",
+                releaseDate: "Ngày chiếu 1"
+            },
+            {
+                name: "Phim 8",
+                image: "Image/img08.jpg",
+                genre: "Thể loại 1",
+                releaseDate: "Ngày chiếu 1"
+            },
+            {
+                name: "Phim 9",
+                image: "Image/i.jpg",
+                genre: "Thể loại 1",
+                releaseDate: "Ngày chiếu 1"
+            },
+            {
+                name: "Phim 10",
+                image: "Image/i.jpg",
+                genre: "Thể loại 1",
+                releaseDate: "Ngày chiếu 1"
+            }
+        ];
+
+        function createMovieElement(movie) {
+            var movieDiv = document.createElement("div");
+            var movieImage = document.createElement("img");
+            var movieTitle = document.createElement("h1");
+            var movieGenre = document.createElement("span");
+            var movieReleaseDate = document.createElement("span");
+
+            movieImage.src = movie.image;
+            movieTitle.textContent = movie.name;
+            movieGenre.textContent = movie.genre;
+            movieReleaseDate.textContent = movie.releaseDate;
+
+            movieDiv.appendChild(movieImage);
+            movieDiv.appendChild(movieTitle);
+            movieDiv.appendChild(movieGenre);
+            movieDiv.appendChild(movieReleaseDate);
+
+            return movieDiv;
+        }
+
+        var listMovieDiv = document.querySelector(".listMovie");
+
+        for (var i = 0; i < movies.length; i++) {
+            var movie = movies[i];
+            var movieElement = createMovieElement(movie);
+            listMovieDiv.appendChild(movieElement);
+        }
+
+        var genres = [
+            {
+                name: "HÀNH ĐỘNG",
+                movies: ["Phim 1", "Phim 2", "Phim 3"]
+            },
+            {
+                name: "TÌNH CẢM",
+                movies: ["Phim 4", "Phim 5", "Phim 6"]
+            },
+            {
+                name: "KINH DỊ",
+                movies: ["Phim 7", "Phim 8", "Phim 9", "Phim 10"]
+            }
+        ];
+
+        function displayMoviesByGenre(genreName) {
+            while (listMovieDiv.firstChild) {
+                listMovieDiv.removeChild(listMovieDiv.firstChild);
+            }
+
+            var selectedGenre = genres.find(function (genre) {
+                return genre.name === genreName;
+            });
+
+            if (selectedGenre) {
+                selectedGenre.movies.forEach(function (movieName) {
+                    var movie = movies.find(function (movie) {
+                        return movie.name === movieName;
+                    });
+
+                    if (movie) {
+                        var movieElement = createMovieElement(movie);
+                        listMovieDiv.appendChild(movieElement);
+                    }
+                });
+            }
+        }
+        function displayAllMovies() {
+            while (listMovieDiv.firstChild) {
+                listMovieDiv.removeChild(listMovieDiv.firstChild);
+            }
+
+            movies.forEach(function (movie) {
+                var movieElement = createMovieElement(movie);
+                listMovieDiv.appendChild(movieElement);
+            });
+        }
+        var homeButton = document.getElementById("homeButton");
+        homeButton.addEventListener("click", displayAllMovies);
+
+        var actionButton = document.querySelector(".item-h2:nth-child(4) button");
+        actionButton.addEventListener("click", function () {
+            displayMoviesByGenre("HÀNH ĐỘNG");
+        });
+
+        var romanceButton = document.querySelector(".item-h2:nth-child(5) button");
+        romanceButton.addEventListener("click", function () {
+            displayMoviesByGenre("TÌNH CẢM");
+        });
+
+        var horrorButton = document.querySelector(".item-h2:nth-child(6) button");
+        horrorButton.addEventListener("click", function () {
+            displayMoviesByGenre("KINH DỊ");
+        });
+
+    </script>
+</body>
+
+</html>
